@@ -14,7 +14,7 @@ class LRUCache(BaseCaching):
         self.__keys = []
 
     def put(self, key, item):
-        """put item into cache_data with LIFO algorithm
+        """put item into cache_data
         Args:
             key ([type]): key of dictionary
             item ([type]): item to insert in dictionary
@@ -30,7 +30,7 @@ class LRUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """get value of cache_data dictionary
+        """get item of cache_data
         Args:
             key ([type]): key to search into cache_data
         """

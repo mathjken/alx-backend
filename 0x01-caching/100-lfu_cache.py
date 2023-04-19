@@ -14,15 +14,15 @@ class LFUCache(BaseCaching):
         self.counter = {}
 
     def put(self, key, item):
-        """ Puts item in cache """
+        """ Puts values in cache """
         if key is None or item is None:
             return
 
         self.cache_data[key] = item
 
-        item_count = self.counter.get(key, None)
+        item_cnt = self.counter.get(key, None)
 
-        if item_count is not None:
+        if item_cnt is not None:
             self.counter[key] += 1
         else:
             self.counter[key] = 1

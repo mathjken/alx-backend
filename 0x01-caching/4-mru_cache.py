@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""MRUCache module
+"""MRUCache 
 """
 from base_caching import BaseCaching
 
@@ -14,7 +14,7 @@ class MRUCache(BaseCaching):
         self.__keys = []
 
     def put(self, key, item):
-        """put item into cache_data with MRU algorithm
+        """put values into cache_data with MRU algorithm
         Args:
             key ([type]): key of dictionary
             item ([type]): item to insert in dictionary
@@ -29,7 +29,7 @@ class MRUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """get value of cache_data dictionary
+        """get items of cache_data dictionary
         Args:
             key ([type]): key to search into cache_data
         """

@@ -13,7 +13,7 @@ class LIFOCache(BaseCaching):
         self.queue = []
 
     def put(self, key, item):
-        """ Puts item in cache """
+        """ Puts item into  cache_data with LIFO algo """
         if key is None or item is None:
             return
 
@@ -31,7 +31,7 @@ class LIFOCache(BaseCaching):
             self.mv_last_list(key)
 
     def get(self, key):
-        """ Gets item from cache """
+        """ Gets value from cache dictionary"""
         return self.cache_data.get(key, None)
 
     def mv_last_list(self, item):

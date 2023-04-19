@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-""" FIFO Caching """
+""" FIFO Cache module """
 
 from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ FIFO caching """
+    """ FIFO caching class """
 
     def __init__(self):
-        """ Constructor """
+        """ Constructor function"""
         super().__init__()
         self.queue = []
 
