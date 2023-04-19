@@ -1,19 +1,29 @@
 #!/usr/bin/python3
-
-""" Basic Dictionary """
-
+"""BasicCache module
+"""
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """Basic dictionary"""
+    """BasicCache class
+    Args:
+        BaseCaching (class): Basic class for this class
+    """
 
     def put(self, key, item):
-        """Puts item in cache"""
-        if key is not None and item is not None:
+        """put new value into cache_data dictionary
+        Args:
+            key ([type]): key of dictionary self.cache_data
+            item ([type]): value of key
+        """
+        if key and item:
             self.cache_data[key] = item
 
     def get(self, key):
-        """Gets item from cache"""
-        return self.cache_data.get(key, None)
-
+        """get value of cache_data dictionary
+        Args:
+            key ([type]): key to search into cache_data
+        """
+        if not key or key not in self.cache_data:
+            return None
+        return self.cache_data[key]

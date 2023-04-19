@@ -1,46 +1,40 @@
 #!/usr/bin/python3
-""" MRU Caching """
-
+"""MRUCache module
+"""
 from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
-    """ MRU caching """
-
+    """MRUCache class
+    Args:
+        BaseCaching (class): Basic class for this class
+    """
     def __init__(self):
-        """ Constructor """
         super().__init__()
-        self.queue = []
+        self.__keys = []
 
     def put(self, key, item):
-        """ Puts item in cache """
-        if key is None or item is None:
-            return
-
-        self.cache_data[key] = item
-
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            if self.queue:
-                last = self.queue.pop()
-                del self.cache_data[last]
-                print("DISCARD: {}".format(last))
-
-        if key not in self.queue:
-            self.queue.append(key)
-        else:
-            self.mv_last_list(key)
+        """put item into cache_data with MRU algorithm
+        Args:
+            key ([type]): key of dictionary
+            item ([type]): item to insert in dictionary
+        """
+        if len(self.cache_data) == self.MAX_ITEMS and key not in self.__keys:
+            discard = self.__keys.pop()
+            del self.cache_data[discard]
+            print('DISCARD: {}'.format(discard))
+        if key and item:
+            if key not in self.__keys:
+                self.__keys.append(key)
+            self.cache_data[key] = item
 
     def get(self, key):
-        """ Gets item from cache """
-        item = self.cache_data.get(key, None)
-        if item is not None:
-            self.mv_last_list(key)
-        return item
-
-    def mv_last_list(self, item):
-        """ Moves element to last idx of list """
-        length = len(self.queue)
-        if self.queue[length - 1] != item:
-            self.queue.remove(item)
-            self.queue.append(item)
-
+        """get value of cache_data dictionary
+        Args:
+            key ([type]): key to search into cache_data
+        """
+        if not key or key not in self.cache_data:
+            return None
+        self.__keys.remove(key)
+        self.__keys.append(key)
+        return self.cache_data[key]
