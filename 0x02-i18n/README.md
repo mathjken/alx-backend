@@ -2,7 +2,7 @@
 # **0x02. i18n**
 
 
-# 
+### 
 **Learning Objectives**
 
 
@@ -11,7 +11,7 @@
 2. Learn how to infer the correct locale based on URL parameters, user settings or request headers
 3. Learn how to localize timestamps
 
-# 
+###
 **Requirements**
 
 1. All your files will be interpreted/compiled on Ubuntu 18.04 LTS using python3 (version 3.7)
