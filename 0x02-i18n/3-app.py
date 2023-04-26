@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Basic Flask app
+Flask app
 """
 from flask import (
     Flask,
